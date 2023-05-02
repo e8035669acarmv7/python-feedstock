@@ -13,7 +13,9 @@ VERABI=${VER}${DBG}
 
 
 cp -pf ${_buildd_static}/libpython${VERABI}.a ${PREFIX}/lib/libpython${VERABI}.a
-if [[ ${HOST} =~ .*linux.* ]]; then
+if [[ ${HOST} =~ armv7l.*linux.* ]]; then
+  pushd ${PREFIX}/lib/python${VERABI}/config-${VERABI}-${HOST/v7l-conda/}
+elif [[ ${HOST} =~ .*linux.* ]]; then
   pushd ${PREFIX}/lib/python${VERABI}/config-${VERABI}-${HOST/-conda/}
 elif [[ ${HOST} =~ .*darwin.* ]]; then
   pushd ${PREFIX}/lib/python${VERABI}/config-${VERABI}-darwin
