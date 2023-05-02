@@ -97,6 +97,8 @@ build:
 
   # match python.org compiler standard
   skip: True            # [win and int(float(vc)) < 14]
+  skip_compile_pyc:
+    - '*.py'            # [build_platform != target_platform]
   string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_cpython
   run_exports:
     noarch:
