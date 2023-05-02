@@ -391,6 +391,8 @@ if [[ -n ${HOST} ]]; then
           PY_ARCH=powerpc64le
         elif [[ ${HOST} =~ aarch64.* ]]; then
           PY_ARCH=aarch64
+        elif [[ ${HOST} =~ armv7l.* ]]; then
+          PY_ARCH=armv7l
         else
           echo "ERROR: Cannot determine PY_ARCH for host ${HOST}"
           exit 1
