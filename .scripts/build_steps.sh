@@ -32,7 +32,7 @@ pkgs_dirs:
 CONDARC
 
 mamba install --update-specs --yes --quiet --channel conda-forge --strict-channel-priority \
-    pip mamba conda-build boa conda-forge-ci-setup=3
+    pip mamba conda-build boa e8035669acarmv7::conda-forge-ci-setup=3
 mamba update --update-specs --yes --quiet --channel conda-forge --strict-channel-priority \
     pip mamba conda-build boa conda-forge-ci-setup
 

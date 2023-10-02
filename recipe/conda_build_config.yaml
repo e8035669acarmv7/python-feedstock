@@ -1,19 +1,19 @@
 python:
-  - 3.12
+- 3.12
 python_impl:
-  - cpython
+- cpython
 numpy:
-  - 1.16
+- 1.16
 MACOSX_SDK_VERSION:            # [osx and x86_64]
-  - 11.0                       # [osx and x86_64]
+- 11.0                         # [osx and x86_64]
 build_type:
-  - release
-  - debug                      # [not win]
+- release
 channel_sources:
-  - conda-forge/label/python_rc,conda-forge
+- e8035669acarmv7,conda-forge
 channel_targets:
-  - conda-forge main
-  - conda-forge python_debug   # [not win]
+- e8035669acarmv7 main
 zip_keys:
-  - build_type
-  - channel_targets
+- build_type
+- channel_targets
+docker_image:
+- e8035669/linux-anvil-armv7l  # [os.environ.get("BUILD_PLATFORM") == "linux-armv7l"]
