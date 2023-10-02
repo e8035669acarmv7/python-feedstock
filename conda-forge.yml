@@ -1,6 +1,13 @@
-build_platform: {osx_arm64: osx_64}
+build_platform:
+  linux_armv7l: linux_armv7l
 conda_forge_output_validation: true
-provider: {linux_aarch64: default, linux_ppc64le: native}
+provider:
+  linux_armv7l: azure
+  linux_64: None
+  osx_64: None
+  win_64: None
+  linux_ppc64le: None
+  linux_aarch64: None
 test_on_native_only: true
 bot:
   abi_migration_branches:
@@ -14,4 +21,12 @@ github:
   tooling_branch_name: main
 conda_build:
   pkg_format: '2'
-remote_ci_setup: ["conda-forge-ci-setup=3", "libsolv<0.7.23"]  # https://github.com/conda/conda-build/issues/4750
+remote_ci_setup: e8035669acarmv7::conda-forge-ci-setup=3       # https://github.com/conda/conda-build/issues/4750
+channels:
+  sources:
+  - e8035669acarmv7
+  - conda-forge
+  targets:
+  - [e8035669acarmv7, main]
+channel_priority: flexible
+
