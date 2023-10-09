@@ -1,7 +1,7 @@
 About python-feedstock
 ======================
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/python-feedstock/blob/main/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/python-3.11-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.python.org/
 
@@ -32,8 +32,8 @@ Current build status
     <td>
       <details>
         <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4155&branchName=main">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/python-feedstock?branchName=main">
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/python-3.11-feedstock?branchName=main">
           </a>
         </summary>
         <table>
@@ -41,8 +41,8 @@ Current build status
           <tbody><tr>
               <td>linux_armv7l</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4155&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/python-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_armv7l_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/python-3.11-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_armv7l_" alt="variant">
                 </a>
               </td>
             </tr>
