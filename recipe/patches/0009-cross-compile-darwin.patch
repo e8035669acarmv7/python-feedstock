@@ -1,7 +1,7 @@
-From 761d19a67f9e7bf5a478c83485026e264b231af1 Mon Sep 17 00:00:00 2001
+From fae08eb999d62039e0dbbeb65761f0e4c507c471 Mon Sep 17 00:00:00 2001
 From: Ray Donnelly <mingw.android@gmail.com>
 Date: Fri, 2 Oct 2020 00:03:12 +0200
-Subject: [PATCH 09/21] cross compile darwin
+Subject: [PATCH 09/22] cross compile darwin
 
 By Isuru Fernando.
 ---
@@ -11,10 +11,10 @@ By Isuru Fernando.
  3 files changed, 18 insertions(+), 1 deletion(-)
 
 diff --git a/Lib/platform.py b/Lib/platform.py
-index 7bb222088d..0b1cbc98e2 100755
+index c5b6048036..7470545466 100755
 --- a/Lib/platform.py
 +++ b/Lib/platform.py
-@@ -458,7 +458,12 @@ def win32_ver(release='', version='', csd='', ptype=''):
+@@ -459,7 +459,12 @@ def win32_ver(release='', version='', csd='', ptype=''):
  def _mac_ver_xml():
      fn = '/System/Library/CoreServices/SystemVersion.plist'
      if not os.path.exists(fn):
@@ -29,10 +29,10 @@ index 7bb222088d..0b1cbc98e2 100755
      try:
          import plistlib
 diff --git a/configure b/configure
-index b6f90bcd8c..8e60cde53f 100755
+index 6dc8a66e48..552597c021 100755
 --- a/configure
 +++ b/configure
-@@ -4264,6 +4264,9 @@ then
+@@ -4267,6 +4267,9 @@ then
  	*-*-linux*)
  		ac_sys_system=Linux
  		;;
@@ -42,7 +42,7 @@ index b6f90bcd8c..8e60cde53f 100755
  	*-*-cygwin*)
  		ac_sys_system=Cygwin
  		;;
-@@ -4320,6 +4323,9 @@ if test "$cross_compiling" = yes; then
+@@ -4332,6 +4335,9 @@ if test "$cross_compiling" = yes; then
  			_host_cpu=$host_cpu
  		esac
  		;;
@@ -53,10 +53,10 @@ index b6f90bcd8c..8e60cde53f 100755
  		_host_cpu=
  		;;
 diff --git a/configure.ac b/configure.ac
-index ba768aea93..6641d454f1 100644
+index 8a32cb58f4..36b565af1b 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -550,6 +550,9 @@ then
+@@ -547,6 +547,9 @@ then
  	*-*-linux*)
  		ac_sys_system=Linux
  		;;
@@ -66,7 +66,7 @@ index ba768aea93..6641d454f1 100644
  	*-*-cygwin*)
  		ac_sys_system=Cygwin
  		;;
-@@ -605,6 +608,9 @@ if test "$cross_compiling" = yes; then
+@@ -610,6 +613,9 @@ if test "$cross_compiling" = yes; then
  			_host_cpu=$host_cpu
  		esac
  		;;
