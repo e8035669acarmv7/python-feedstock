@@ -1,7 +1,5 @@
-BUILD:
-- armv7-conda_cos7-linux-gnueabihf
 build_type:
-- release
+- debug
 bzip2:
 - '1'
 c_compiler:
@@ -12,20 +10,18 @@ c_stdlib:
 - sysroot
 c_stdlib_version:
 - '2.17'
-cdt_arch:
-- armv7l
 cdt_name:
 - cos7
 channel_sources:
-- e8035669acarmv7,conda-forge
+- conda-forge
 channel_targets:
-- e8035669acarmv7 main
+- conda-forge python_debug
 cxx_compiler:
 - gxx
 cxx_compiler_version:
 - '12'
 docker_image:
-- e8035669/linux-anvil-armv7l
+- quay.io/condaforge/linux-anvil-ppc64le
 expat:
 - '2'
 libffi:
@@ -47,9 +43,7 @@ readline:
 sqlite:
 - '3'
 target_platform:
-- linux-armv7l
-tk:
-- '8.6'
+- linux-ppc64le
 xz:
 - '5'
 zip_keys:

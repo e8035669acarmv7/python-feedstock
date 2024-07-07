@@ -1,4 +1,4 @@
-{% set version = "3.11.6" %}
+{% set version = "3.11.9" %}
 {% set dev = "" %}
 {% set dev_ = "" %}
 {% set ver2 = '.'.join(version.split('.')[0:2]) %}
@@ -46,7 +46,7 @@ source:
 {% else %}
   - url: https://www.python.org/ftp/python/{{ version }}/Python-{{ version }}{{ dev }}.tar.xz
     # md5 from: https://www.python.org/downloads/release/python-{{ ver3nd }}/
-    md5: d0c5a1a31efe879723e51addf56dd206
+    md5: 22ea467e7d915477152e99d5da856ddc
 {% endif %}
     patches:
       - patches/0001-Win32-Change-FD_SETSIZE-from-512-to-2048.patch
@@ -155,6 +155,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib('c') }}
         - {{ compiler('cxx') }}
         - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
         - {{ cdt('libx11-devel') }}  # [linux]
@@ -180,6 +181,7 @@ outputs:
         - ld_impl_{{ target_platform }} >=2.36.1  # [linux]
         - libnsl  # [linux]
         - libuuid  # [linux]
+        - libxcrypt  # [linux]
         - expat
       run:
         - ld_impl_{{ target_platform }} >=2.36.1  # [linux]
@@ -262,6 +264,10 @@ outputs:
         - python3.1 --version  # [unix]
         # Test for segfault on osx-64 with libffi=3.4, see https://bugs.python.org/issue44556
         - python -c "from ctypes import CFUNCTYPE; CFUNCTYPE(None)(id)"
+        # Test for wide character supported via ncursesw
+        - TERM=xterm >/dev/null python -c "import curses; scr = curses.initscr(); curses.unget_wch('x'); assert 'x' ==  scr.get_wch()"  # [unix]
+        # crypt module will be removed in 3.13 => this failing is a reminder to remove the libxcrypt dependency
+        - python -c "import crypt"  # [unix]
 
   - name: libpython-static
     script: build_static.sh  # [unix]
@@ -278,6 +284,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib('c') }}
         - {{ compiler('cxx') }}
 {% if from_source_control == 'yes' %}
         - git
